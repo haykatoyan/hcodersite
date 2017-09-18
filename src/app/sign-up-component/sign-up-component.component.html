@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Me Up</title>
+</head>
+<body>
+	<div id="login-box">
+	    <h1 style="text-align: center;">Sign up</h1>
+	    
+	    <input type="text" name="username" [ngModel]="username.value" (ngModelChange)="usernameValidate($event)" placeholder="Username" /> 
+
+	    <span *ngIf="username.iconDemand" style="margin-left: 9px;" class="glyphicon glyphicon-exclamation-sign" style="color:#6D9B98"></span>
+
+	    <span *ngIf="username.iconError" style="margin-left: 9px;" class="glyphicon glyphicon-remove-sign" style="color:#EAA49E"></span>
+
+	    <span *ngIf="username.iconOk" style="margin-left: 9px;" class="glyphicon glyphicon-ok-sign" style="color:#BCEAA8"></span>
+
+	    <input type="text" name="fullname"  [ngModel]="fullName.value" (ngModelChange)="fullNameValidate($event)" placeholder="Full name" />
+	    <span *ngIf="fullName.iconDemand" style="margin-left: 9px;" class="glyphicon glyphicon-exclamation-sign" style="color:#6D9B98"></span>
+
+	    <span *ngIf="fullName.iconError" style="margin-left: 9px;" class="glyphicon glyphicon-remove-sign" style="color:#EAA49E"></span>
+
+	    <span *ngIf="fullName.iconOk" style="margin-left: 9px;" class="glyphicon glyphicon-ok-sign" style="color:#BCEAA8"></span>
+	    
+	    <input type="text" name="email" [ngModel]="email.value" (ngModelChange)="emailValidate($event)" placeholder="E-mail" />
+	    <span *ngIf="email.iconDemand" style="margin-left: 9px;" class="glyphicon glyphicon-exclamation-sign" style="color:#6D9B98"></span>
+
+	    <span *ngIf="email.iconError" style="margin-left: 9px;" class="glyphicon glyphicon-remove-sign" style="color:#EAA49E"></span>
+
+	    <span *ngIf="email.iconOk" style="margin-left: 9px;" class="glyphicon glyphicon-ok-sign" style="color:#BCEAA8"></span>
+	    
+	    <input type="password" name="password" [ngModel]="pass1.value" (ngModelChange)="pass1Validate($event)" placeholder="Password" />
+	    <span *ngIf="pass1.iconDemand" style="margin-left: 9px;" class="glyphicon glyphicon-exclamation-sign" style="color:#6D9B98"></span>
+
+	    <span *ngIf="pass1.iconError" style="margin-left: 9px;" class="glyphicon glyphicon-remove-sign" style="color:#EAA49E"></span>
+
+	    <span *ngIf="pass1.iconOk" style="margin-left: 9px;" class="glyphicon glyphicon-ok-sign" style="color:#BCEAA8"></span>
+	    
+	    <input type="password" name="password2" [ngModel]="pass2.value" (ngModelChange)="pass2Validate($event)" placeholder="Retype password" />
+	    
+	    <span *ngIf="pass2.iconDemand" style="margin-left: 9px;" class="glyphicon glyphicon-exclamation-sign" style="color:#6D9B98"></span>
+
+	    <span *ngIf="pass2.iconError" style="margin-left: 9px;" class="glyphicon glyphicon-remove-sign" style="color:#EAA49E"></span>
+
+	    <span *ngIf="pass2.iconOk" style="margin-left: 9px;" class="glyphicon glyphicon-ok-sign" style="color:#BCEAA8"></span>
+	    
+	    <div align="center">
+	    	<input type="submit" name="signup_submit" value="Sign up" />
+	    </div>
+	    
+	</div>
+</body>
+</html>

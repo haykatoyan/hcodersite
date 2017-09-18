@@ -1,20 +1,48 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<nav class="navbar navbar-default" style="background-color: #538380">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar" style="background-color: #6D9B98;"></span>
+        <span class="icon-bar" style="background-color: #6D9B98;"></span>
+        <span class="icon-bar" style="background-color: #6D9B98;"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="color: #E8F9F8">HCoder</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="localhost:3000" style="background: transparent; color: #E8F9F8">Home</a></li>
+        <li><a href="#" style="color: #E8F9F8">Codes</a></li>
+        <li><a href="#" style="color: #E8F9F8">Profile</a></li>
+        <li><a href="#" style="color: #E8F9F8">Contact</a></li>
+      </ul>
+      <form id="signin" class="navbar-form navbar-right" role="form">
+        <span style="padding-right: 7px">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">
+    </div>
+    </span>
+    <span style="margin: 2px; padding-right: 17px">
+              <button class="btn btn-primary" style="background-color: #51CAB2;color: #E8F9F8; border: none;">Log in</button>
+    </span>
+    <span style="margin: 2px; padding-right: 2px">
+              <a href="javascript:void(0)" [routerLink]="['/signUp']" class="btn btn-primary" style="background-color: #EAC99E; color: #E8F9F8; border: none;">Sign up</a>
+    </span>
+    </form>
+    <!--<ul class="nav navbar-nav navbar-right">
+          <li><a href="#" style="color: #E8F9F8">Log out</a></li>
+        </ul>-->
+  </div>
+  <!--/.nav-collapse -->
+  </div>
+  <!--/.container-fluid -->
+</nav>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
