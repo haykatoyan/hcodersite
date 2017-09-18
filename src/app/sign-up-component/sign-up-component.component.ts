@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import {Http, Headers} from '@angular/http';
+import { Router } from '@angular/router';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-sign-up-component',
   templateUrl: './sign-up-component.component.html',
   styleUrls: ['./sign-up-component.component.css']
 })
+@Injectable()
 export class SignUpComponentComponent implements OnInit {
 	
 	private username : Item;
@@ -13,7 +18,7 @@ export class SignUpComponentComponent implements OnInit {
 	private pass1 : Item;
 	private pass2 : Item;
 
-	constructor() { }
+	constructor(private http: Http, private router: Router) { }
 
     ngOnInit() {
     	this.username = new Item();
@@ -43,7 +48,7 @@ export class SignUpComponentComponent implements OnInit {
     	}
 
     	this.username.value = username;
-    	console.log(this.username.value);
+    	//console.log(this.username.value);
     }
 
     public fullNameValidate(fullName) {
@@ -67,12 +72,21 @@ export class SignUpComponentComponent implements OnInit {
 
 
     	this.fullName.value = fullName;
-    	console.log(this.fullName.value);
+    	//console.log(this.fullName.value);
     }
 
     public emailValidate(email) {
-    	this.email.value = email;	
-    	console.log(this.email.value);
+
+        if(this.validateEmail(email)) {
+            this.email.iconOk = true;
+            this.email.iconDemand = this.email.iconError = false;
+        } else {
+            this.email.iconError = true;
+            this.email.iconDemand = this.email.iconOk = false;
+        }
+
+    	this.email.value = email;
+    	//console.log(this.email.value);
     }
 
     public pass1Validate(pass1) {
@@ -96,39 +110,65 @@ export class SignUpComponentComponent implements OnInit {
     	}
 
     	this.pass1.value = pass1;	
-    	console.log(pass1);
+    	//console.log(pass1);
     }
 
     public pass2Validate(pass2) {
 
-    	if(fullName.length < 3) {
-    		this.fullName.iconError = true;
-    		this.fullName.iconDemand = this.fullName.iconOk = false;
+    	if(pass2.length < 3) {
+    		this.pass2.iconError = true;
+    		this.pass2.iconDemand = this.pass2.iconOk = false;
     	} else {
-    		if(!isNaN(parseInt(fullName.charAt(0)))) {
-    			this.fullName.iconError = true;
-    			this.fullName.iconDemand = this.fullName.iconOk = false;
+    		if(!isNaN(parseInt(pass2.charAt(0)))) {
+    			this.pass2.iconError = true;
+    			this.pass2.iconDemand = this.pass2.iconOk = false;
     		} else {
-    			if(this.isValid(fullName)) {
-    				this.fullName.iconOk = true;
-    				this.fullName.iconDemand = this.fullName.iconError = false;
+    			if(this.isValid(pass2)) {
+                    if(pass2 == this.pass1.value) {
+                        this.pass2.iconOk = true;
+                        this.pass2.iconDemand = this.pass2.iconError = false;
+                    } else {
+                        this.pass2.iconError = true;
+                        this.pass2.iconDemand = this.pass2.iconOk = false;
+                    }
     			} else {
-    				this.fullName.iconError = true;
-    				this.fullName.iconDemand = this.fullName.iconOk = false;
+    				this.pass2.iconError = true;
+    				this.pass2.iconDemand = this.pass2.iconOk = false;
     			}
     		}
     	}
 
-    	this.pass2.value = pass2;	    	
-    	console.log(pass2);
+    	this.pass2.value = pass2;  	
+    	//console.log(pass2);
     }
 
-    public onBlurMethod() {
-    	alert("Hello");
+    public signUp() {
+
+        if(this.email.iconOk && this.username.iconOk && this.fullName.iconOk 
+            && this.pass1.iconOk && this.pass2.iconOk) {
+             let headers = new Headers();
+             headers.append('Content-Type', 'application/json');
+             //let data = ;
+             
+             this.http.post('/signMeUp', JSON.stringify({username: this.username.value, fullName: this.fullName.value, email: this.email.value, pass: this.pass1.value}),
+             {headers: headers}).map((res) => res.json()).subscribe((res: any) => { 
+                 if(res.response == "Ok") {
+                     sessionStorage.setItem("name", res.fullName);
+                     this.router.navigateByUrl('/signUpSuccess');
+                 }});
+        } else {
+            alert("Please fill all rows correctly.");
+        }
+       
     }
 
     private isValid(str) {
     	return /^\w+$/.test(str);
+    }
+
+    private validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
     }
 }
 
