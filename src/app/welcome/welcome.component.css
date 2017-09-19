@@ -1,0 +1,18 @@
+p {
+	font-family: 'Roboto', sans-serif;
+	font-size: 110%;
+	font-weight: 200;
+}
+
+p.main {
+	color: #F9B277;
+	font-size: 120%;
+}
+
+p.lessons {
+	color: #457BA4;
+}
+
+p.codes {
+	color: #60B94D;
+}

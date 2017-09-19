@@ -17,7 +17,7 @@ app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-require('./server/signUp')(app);
+require('./server/router')(app);
 
 //set port
 const port = process.env.PORT || '3000';

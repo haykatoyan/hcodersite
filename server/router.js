@@ -24,4 +24,20 @@ module.exports = function(app) {
     	requestObj.response = response;
 		res.send(JSON.stringify(requestObj));
 	});
+
+    app.post("/signMeIn", function(req, res) {
+        res.setHeader('Content-Type', 'application/json');
+
+        let requestObj = req.body;
+        let email = requestObj.email;
+        let password = requestObj.password;
+
+        db.users.find({$or: [{username: email, password: password}, {email: email, password: password}]}, function(err, data) {
+            if(err) throw err;
+
+            res.send(JSON.stringify(data));
+        });
+
+        
+    });
 }

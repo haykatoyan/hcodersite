@@ -4,6 +4,9 @@ import {Http, Headers} from '@angular/http';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
+declare var jquery:any;
+declare var $ :any;
+
 @Component({
   selector: 'app-sign-up-component',
   templateUrl: './sign-up-component.component.html',
@@ -154,10 +157,17 @@ export class SignUpComponentComponent implements OnInit {
              {headers: headers}).map((res) => res.json()).subscribe((res: any) => { 
                  if(res.response == "Ok") {
                      sessionStorage.setItem("name", res.fullName);
-                     this.router.navigateByUrl('/signUpSuccess');
+                     
+                     $(".successfullSignUp").fadeIn("slow");
+                     
+                     setTimeout(function() { $(".successfullSignUp").fadeOut("slow", function() {
+                         window.location.href = "/";
+                     }); }, 2500);
+
                  }});
         } else {
-            alert("Please fill all rows correctly.");
+            $(".fillAllRows").fadeIn("slow");
+            setTimeout(function() { $(".fillAllRows").fadeOut("slow"); }, 2500);
         }
        
     }
