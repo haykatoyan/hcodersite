@@ -151,11 +151,14 @@ export class SignUpComponentComponent implements OnInit {
             && this.pass1.iconOk && this.pass2.iconOk) {
              let headers = new Headers();
              headers.append('Content-Type', 'application/json');
-             //let data = ;
+   
              
              this.http.post('/signMeUp', JSON.stringify({username: this.username.value, fullName: this.fullName.value, email: this.email.value, pass: this.pass1.value}),
              {headers: headers}).map((res) => res.json()).subscribe((res: any) => { 
+                
+
                  if(res.response == "Ok") {
+                    
                      sessionStorage.setItem("name", res.fullName);
                      
                      $(".successfullSignUp").fadeIn("slow");
@@ -164,7 +167,15 @@ export class SignUpComponentComponent implements OnInit {
                          window.location.href = "/";
                      }); }, 2500);
 
-                 }});
+                 } else if(res.response == "User exists") {
+
+                     $(".userExists").fadeIn("slow");
+                     
+                     setTimeout(function() { $(".userExists").fadeOut("slow", function() {
+                     }); }, 2500);
+                 }
+
+             });
         } else {
             $(".fillAllRows").fadeIn("slow");
             setTimeout(function() { $(".fillAllRows").fadeOut("slow"); }, 2500);

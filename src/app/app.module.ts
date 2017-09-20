@@ -8,7 +8,6 @@ import { AlertModule } from 'ngx-bootstrap';
 import { SignUpComponentComponent } from './sign-up-component/sign-up-component.component';
 import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { SuccessfullSignUpComponent } from './successfull-sign-up/successfull-sign-up.component';
 import { AllCodesComponent } from './all-codes/all-codes.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { LessonsComponent } from './lessons/lessons.component';
@@ -30,7 +29,6 @@ const appRoutes: Routes = [
     AppComponent,
     SignUpComponentComponent,
     WelcomeComponent,
-    SuccessfullSignUpComponent,
     AllCodesComponent,
     MyAccountComponent,
     LessonsComponent,

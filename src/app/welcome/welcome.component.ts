@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+	public defaultCode : string = "function average(a, b) { return (a + b) / 2; }";
+    constructor() {}
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+
+    }
 
 }

@@ -16,3 +16,63 @@ p.lessons {
 p.codes {
 	color: #60B94D;
 }
+
+form.code {
+	margin: auto;
+	position:relative;
+	padding:0;
+	width:530px;
+	height:auto;
+	overflow:hidden;
+	background:transparent;
+}
+
+#min {
+	float:none;
+	font-size:12px;
+}
+
+#min span {
+	color:#d1d1d1;
+}
+
+textarea {
+	margin:10px auto 0 auto;
+	padding:10px;
+	width:500px;
+	height:150px;
+	outline:none;
+	resize:vertical;
+	max-height:200px;
+	color:#666;
+	background:#FFE0BC;
+	border:4px solid #3C5255;
+	border-radius:5px;
+	text-shadow:1px 1px 2px #ddd;
+	font-family:arial,tahoma;
+	font-size:15px;
+	font-weight:normal;
+	-webkit-border-radius:5px;
+	-webkit-transition:0.3s ease all;
+	   -moz-transition:0.3s ease all;
+	    -ms-transition:0.3s ease all;
+	     -o-transition:0.3s ease all;
+	        transition:0.3s ease all;
+}
+
+textarea:hover, textarea:focus {
+	background:#ECF0F1;
+}
+
+textarea::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #666;
+}
+textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #666;
+}
+textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #666;
+}
+textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #666;
+}
