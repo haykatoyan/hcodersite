@@ -76,3 +76,8 @@ textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
 textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #666;
 }
+
+
+#defaultCodeForm textarea {
+	resize: none;
+}

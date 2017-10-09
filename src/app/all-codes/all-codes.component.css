@@ -1,0 +1,49 @@
+div.code {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid black;
+    width: 50%;
+}
+div.code h2 {
+    font-size: 20px;
+}
+div.code p {
+    font-size: 16px;
+}
+
+div.code textarea {
+    resize: vertical;
+    color: #41594E;
+    font-size: 17px;
+    width: 90%;
+    background-color: #DBF1E7;
+    font-family:Consolas;
+    overflow:hidden;
+    min-height:100px;
+}
+
+.runBtn {
+    margin-right: 5px;
+}
+
+.editBtn {
+    margin-left: 5px;
+    background-color: #EE9B3C;
+    color: white;
+}
+
+#allCodesSearch {
+    padding: 20px 0 20px 0;
+}
+
+#allCodesSearchBtn {
+    background-color: #538380;
+}
+
+#allCodesSearchBtn:hover {
+    background-color: #51CAB2;
+}
+
+#allCodesSearchBtn i {
+    color: #E8F9F8;
+}

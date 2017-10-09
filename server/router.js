@@ -7,8 +7,8 @@ module.exports = function(app) {
 	app.post("/signMeUp", function(req, res) {
 		res.setHeader('Content-Type', 'application/json');
 
-		let requestObj = req.body;
-		let response = "Error";
+		var requestObj = req.body;
+		var response = "Error";
 
         if(requestObj.username && requestObj.fullName && requestObj.email && requestObj.pass) {
 
@@ -45,14 +45,24 @@ module.exports = function(app) {
     app.post("/signMeIn", function(req, res) {
         res.setHeader('Content-Type', 'application/json');
 
-        let requestObj = req.body;
-        let email = requestObj.email;
-        let password = requestObj.password;
+        var requestObj = req.body;
+        var email = requestObj.email;
+        var password = requestObj.password;
 
         db.users.find({$or: [{username: email, password: md5(password)}, {email: email, password: md5(password)}]}, function(err, data) {
             if(err) throw err;
 
             res.send(JSON.stringify(data));
+        });
+    });
+
+    app.post("/getAllCodes", function(req, res) {
+        res.setHeader('Content-Type', 'application/json');
+
+        db.codes.find({}, function(err, data) {
+            if(err) throw err;
+
+            res.send(data);
         });
     });
 }

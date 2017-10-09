@@ -11,12 +11,12 @@
       <a class="navbar-brand" id="helloHeading" href="javascript:void(0)" style="color: #E8F9F8">{{currentUserName}}</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="javascript:void(0)" [routerLink]="['/']" style="background: transparent; color: #E8F9F8">Home</a></li>
-        <li><a [routerLink]="['/allCodes']" href="javascript:void(0)" style="color: #E8F9F8" >All codes</a></li>
-        <li *ngIf="isLoggedIn"><a [routerLink]="['/myAccount']" href="javascript:void(0)" style="color: #E8F9F8">My account</a></li>
-        <li><a [routerLink]="['/lessons']" href="javascript:void(0)" style="color: #E8F9F8">Lessons</a></li>
-        <li><a [routerLink]="['/contactUs']" href="javascript:void(0)" style="color: #E8F9F8">Contact us</a></li>
+      <ul class="nav navbar-nav mainUL">
+        <li><a href="javascript:void(0)" (click)="hello('aHome')" [routerLink]="['/']" id="aHome">Home</a></li>
+        <li><a [routerLink]="['/allCodes']" (click)="hello('aCodes')" href="javascript:void(0)" id="aCodes">All codes</a></li>
+        <li *ngIf="isLoggedIn"><a [routerLink]="['/myAccount']" (click)="hello('aMyAccount')" href="javascript:void(0)" id="aMyAccount">My account</a></li>
+        <li><a [routerLink]="['/lessons']" href="javascript:void(0)" id="aLessons" (click)="hello('aLessons')">Lessons</a></li>
+        <li><a [routerLink]="['/contactUs']" href="javascript:void(0)" id="aContactUs" (click)="hello('aContactUs')">Contact us</a></li>
       </ul>
       <form *ngIf="!isLoggedIn" id="signin" class="navbar-form navbar-right" role="form">
         <span style="padding-right: 7px">
