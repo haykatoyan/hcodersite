@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCheckboxModule } from '@angular/material';
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +16,7 @@ import { MyAccountComponent } from './my-account/my-account.component';
 import { LessonsComponent } from './lessons/lessons.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EditorComponent } from './editor/editor.component';
 
 const appRoutes: Routes = [
   { path: 'signUp', component: SignUpComponentComponent },
@@ -33,10 +37,18 @@ const appRoutes: Routes = [
     MyAccountComponent,
     LessonsComponent,
     ContactUsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EditorComponent
   ],
   imports: [
-	RouterModule.forRoot(appRoutes, { enableTracing: true, useHash: true }), BrowserModule, FormsModule ,AlertModule.forRoot(), HttpModule
+	  RouterModule.forRoot(appRoutes, { enableTracing: true, useHash: true }), 
+    BrowserModule, FormsModule ,AlertModule.forRoot(), HttpModule,
+    BrowserAnimationsModule, MatButtonModule, MatCardModule, 
+    MatMenuModule, MatToolbarModule, MatIconModule, MatCheckboxModule, BootstrapModalModule,
+    BootstrapModalModule.forRoot({container:document.body})
+  ],
+  entryComponents: [
+      EditorComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

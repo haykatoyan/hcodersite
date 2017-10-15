@@ -19,12 +19,16 @@
 
       <h2>{{code.title}}</h2>
 
-      <textarea readonly>{{code.code}}</textarea>
+      <textarea readonly style="resize: none;">{{code.code}}</textarea>
       <br>
 
-      <button class="btn btn-success runBtn">Run code</button>
+      <!--<button class="btn btn-success runBtn">Run code</button>
       <button class="btn editBtn" style="">Edit code</button>
+      -->
 
+      <div class="button-row">
+          <button (click)="openEditor()" mat-raised-button style="background-color: #538380;"><span style="color: #E8F9F8">View in editor</span></button>
+      </div>
     </div>
   </div>
 

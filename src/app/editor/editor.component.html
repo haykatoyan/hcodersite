@@ -1,0 +1,23 @@
+<div class="modal-dialog" style="width: 55%">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" (click)="cancel()">&times;</button>
+      <h4 class="modal-title">{{title}}    (<span style="color: #FF90B6; font-family: 'Times New Roman', Times, serif; "> enable dynamic compiling - <mat-checkbox [(ngModel)]="dynamicCompiling"></mat-checkbox> </span>)</h4>
+      
+    </div>
+    <div class="modal-body">
+    	<textarea [(ngModel)]="sourceCode" (ngModelChange)="runExecuteCode()" class="lined hEditorCode" rows="6" placeholder="Write code here..."></textarea>
+    	<br>
+    	<div align="center">
+    		<button (click)="executeCode()" mat-fab color="accent"><span style="color: #FFFAFA">Run</span></button>
+    	</div>
+    	<br>
+    	<div style="margin-top: 1px;">
+    		<textarea class="lined hEditorResult" rows="2" placeholder="Result..." readonly>{{resultCode}}</textarea>
+    	</div>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+</div>
+

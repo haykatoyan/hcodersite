@@ -1,6 +1,0 @@
-let requestObj = req.body;
-		let response = "Error";
-
-    	if(requestObj.username && requestObj.fullName && requestObj.email && requestObj.pass) {
-    		response = "Ok";
-    	}

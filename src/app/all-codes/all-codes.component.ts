@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {Router} from '@angular/router';
+import {MatButtonModule} from '@angular/material';
+import { EditorComponent } from '../editor/editor.component';
+import { DialogService } from "ng2-bootstrap-modal";
+
 import 'rxjs/add/operator/map';
 
 declare var jquery: any;
@@ -17,7 +21,7 @@ export class AllCodesComponent implements OnInit {
 
     public codes: any;
 
-    constructor(private http: Http, private router: Router) {
+    constructor(private http: Http, private router: Router, private dialogService: DialogService) {
     }
 
     ngOnInit() {
@@ -27,5 +31,11 @@ export class AllCodesComponent implements OnInit {
             this.codes = res;
         });
     }
+
+    openEditor() : void {
+        let disposable = this.dialogService.addDialog(EditorComponent, {
+                title:'Code editor', 
+        });
+    } 
 
 }
